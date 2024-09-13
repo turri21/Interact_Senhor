@@ -8,9 +8,8 @@ Adjustments for the new framework to work:
 All references to joystick_analog renamed to joystick_analog_l0 and l1 respectively 
 - wire [15:0] joystick_analog_0, joystick_analog_1;   ->   wire [15:0] joystick_analog_l0, joystick_analog_l1;
 
+- Disabled
 emu emu(
-
-...
 
 ...
 
@@ -24,7 +23,6 @@ emu emu(
 
 ...
 
-...
 );
 
 # [Interact](https://en.wikipedia.org/wiki/Interact_Home_Computer) for [MiSTer Platform](https://github.com/MiSTer-devel/Main_MiSTer/wiki)
