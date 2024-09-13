@@ -27,23 +27,14 @@ All references to joystick_analog renamed to joystick_analog_l0 and l1 respectiv
 
 
 emu emu(
-
 ...
-
 ...
-
 //.HDMI_BLACKOUT(hdmi_blackout),
-
 //`ifndef MISTER_DUAL_SDRAM
-
 //	.VGA_DISABLE(VGA_DISABLE),
-
 //`endif
-
 ...
-
 ...
-
 );
 
 # [Interact](https://en.wikipedia.org/wiki/Interact_Home_Computer) for [MiSTer Platform](https://github.com/MiSTer-devel/Main_MiSTer/wiki)
