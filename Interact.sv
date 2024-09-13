@@ -26,7 +26,7 @@ module emu
 	input         RESET,
 
 	//Must be passed to hps_io module
-	inout  [45:0] HPS_BUS,
+	inout  [48:0] HPS_BUS,
 
 	//Base video clock. Usually equals to CLK_SYS.
 	output        CLK_VIDEO,
@@ -235,7 +235,7 @@ wire  [1:0] buttons;
 wire [31:0] status;
 wire [10:0] ps2_key;
 wire [15:0] joystick_0,joystick_1;
-wire [15:0] joystick_analog_0, joystick_analog_1;
+wire [15:0] joystick_analog_l0, joystick_analog_l1;
 wire  [7:0] paddle_0, paddle_1;
 
 wire        ioctl_download;
@@ -265,8 +265,8 @@ hps_io #(.CONF_STR(CONF_STR)) hps_io
 
 	.joystick_0(joystick_0),
 	.joystick_1(joystick_1),
-	.joystick_analog_0(joystick_analog_0),
-	.joystick_analog_1(joystick_analog_1),
+	.joystick_l_analog_0(joystick_analog_l0), 
+   .joystick_l_analog_1(joystick_analog_l1),
 	.paddle_0(paddle_0),
 	.paddle_1(paddle_1),
 	.ps2_key(ps2_key)
@@ -555,9 +555,9 @@ always_comb
 		5'b10111 : io_rd_rtc_ad = rtc;
 		5'b?1111 : io_rd_rtc_ad = {1'b0, rtc[6:0]};
 		5'b??001 : io_rd_rtc_ad = joystick_0[4] ? 8'h00 : 8'h80;
-		5'b??010 : io_rd_rtc_ad = {~joystick_analog_0[7], joystick_analog_0[6:0]};
+		5'b??010 : io_rd_rtc_ad = {~joystick_analog_l0[7], joystick_analog_l0[6:0]};
 		5'b??100 : io_rd_rtc_ad = joystick_1[4] ? 8'h00 : 8'h80;
-		5'b??101 : io_rd_rtc_ad = {~joystick_analog_1[7], joystick_analog_1[6:0]};
+		5'b??101 : io_rd_rtc_ad = {~joystick_analog_l1[7], joystick_analog_l1[6:0]};
 	 default: io_rd_rtc_ad = 8'h00;
 	endcase
 
