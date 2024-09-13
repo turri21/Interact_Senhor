@@ -2,38 +2,28 @@
 
 Framework updated to fix black screens.
 
-- Adjustments for the new framework to work:
-HPS_BUS changed from [45:0] to [48:0]
-
-- wire [15:0] joystick_analog_0, joystick_analog_1;   ->   wire [15:0] joystick_analog_l0, joystick_analog_l1;
-
-hps_io #(.CONF_STR(CONF_STR)) hps_io
-(
-...
-...
-.joystick_l_analog_0(joystick_analog_l0), 
-.joystick_l_analog_1(joystick_analog_l1),
-...
-...
-)
+Adjustments for the new framework to work:
+- HPS_BUS changed from [45:0] to [48:0]
 
 All references to joystick_analog renamed to joystick_analog_l0 and l1 respectively 
-
-5'b??010 : io_rd_rtc_ad = {~joystick_analog_l0[7], joystick_analog_l0[6:0]};
-
-5'b??100 : io_rd_rtc_ad = joystick_1[4] ? 8'h00 : 8'h80;
-
-5'b??101 : io_rd_rtc_ad = {~joystick_analog_l1[7], joystick_analog_l1[6:0]};
-
+- wire [15:0] joystick_analog_0, joystick_analog_1;   ->   wire [15:0] joystick_analog_l0, joystick_analog_l1;
 
 emu emu(
+
 ...
+
 ...
+
 //.HDMI_BLACKOUT(hdmi_blackout),
+
 //`ifndef MISTER_DUAL_SDRAM
+
 //	.VGA_DISABLE(VGA_DISABLE),
+
 //`endif
+
 ...
+
 ...
 );
 
