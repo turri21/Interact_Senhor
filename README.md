@@ -1,4 +1,6 @@
--=(Senhor Notes)=-
+=(Interact_Senhor notes)=-
+
+Tested: Working Video 720p, 1080p & Sound
 
 Framework updated to fix black screens.
 
