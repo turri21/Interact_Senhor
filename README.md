@@ -11,7 +11,7 @@ All references to joystick_analog renamed to joystick_analog_l0 and l1 respectiv
 - wire [15:0] joystick_analog_0, joystick_analog_1;   ->   wire [15:0] joystick_analog_l0, joystick_analog_l1;
 
 
-- Disabled
+- Disabled in
 emu emu(
 
 ...
