@@ -1,11 +1,11 @@
 -=(Senhor Notes)=-
 
-Framework update to fix black screens
+Framework updated to fix black screens.
 
-Adjustments for the new framework to work:
+- Adjustments for the new framework to work:
 HPS_BUS changed from [45:0] to [48:0]
 
-wire [15:0] joystick_analog_0, joystick_analog_1;   ->   wire [15:0] joystick_analog_l0, joystick_analog_l1;
+- wire [15:0] joystick_analog_0, joystick_analog_1;   ->   wire [15:0] joystick_analog_l0, joystick_analog_l1;
 
 hps_io #(.CONF_STR(CONF_STR)) hps_io
 (
