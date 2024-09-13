@@ -18,19 +18,32 @@ hps_io #(.CONF_STR(CONF_STR)) hps_io
 )
 
 All references to joystick_analog renamed to joystick_analog_l0 and l1 respectively 
+
 5'b??010 : io_rd_rtc_ad = {~joystick_analog_l0[7], joystick_analog_l0[6:0]};
+
 5'b??100 : io_rd_rtc_ad = joystick_1[4] ? 8'h00 : 8'h80;
+
 5'b??101 : io_rd_rtc_ad = {~joystick_analog_l1[7], joystick_analog_l1[6:0]};
 
+
 emu emu(
+
 ...
+
 ...
+
 //.HDMI_BLACKOUT(hdmi_blackout),
+
 //`ifndef MISTER_DUAL_SDRAM
+
 //	.VGA_DISABLE(VGA_DISABLE),
+
 //`endif
+
 ...
+
 ...
+
 );
 
 # [Interact](https://en.wikipedia.org/wiki/Interact_Home_Computer) for [MiSTer Platform](https://github.com/MiSTer-devel/Main_MiSTer/wiki)
